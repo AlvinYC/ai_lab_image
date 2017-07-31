@@ -59,7 +59,7 @@ X,Y = load_cifar10(dataset_number)
 #####################################################
 XG = X.reshape(10000*dataset_number, 3, 1024).transpose(0,2,1).astype("float64") #10000 x 3 x 1024 --> 10000 x 1024 x 3
 XG = np.mean(XG,axis=2)  #10000 x 1024
-
+XG /= np.std(XG,axis=0)
 #####################################################
 # assign traing set and testing set and run cross validation
 #####################################################
